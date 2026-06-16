@@ -1,18 +1,17 @@
 {
-    "name": "TLPI-Development",
+    "name": "TLPI-Systems-Development",
     "build": {
         "dockerfile": "Dockerfile"
     },
-    // 1. Install Zsh natively via official Dev Container Features
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:1": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true,
-            "configureZshAsDefaultShell": true
+            "configureZshAsDefaultShell": true,
+            "installOhMyZsh": true
         }
     },
     "customizations": {
         "vscode": {
-            // 2. Force VS Code's integrated terminal to use Zsh inside the container
             "settings": {
                 "terminal.integrated.defaultProfile.linux": "zsh"
             },
@@ -22,5 +21,6 @@
             ]
         }
     },
-    "remoteUser": "root"
+    "remoteUser": "root",
+    "postCreateCommand": "bash .devcontainer/setup.sh"
 }

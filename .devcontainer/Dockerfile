@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     build-essential \
     gdb \
+    valgrind \
     man-db \
     manpages-dev \
     git \
@@ -13,5 +14,3 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN yes | unminimize
-
-RUN echo 'PROMPT="%F{cyan}%~%f %(?.%F{green}✓%f.%F{red}✗%f)\n$ "' >> /root/.zshrc
